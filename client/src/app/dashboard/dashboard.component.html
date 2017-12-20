@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Hi {{username}}</h1>
+  <nav>
+    <div class="navbar-right"> 
+      <a  [routerLink]="['/create']">Add a Question</a>
+      <a  [routerLink]="['/logout']">Logout</a>
+    </div>
+  </nav>
+  <div class="search">
+    <input type="text" placeholder="search">
+  </div>
+  <div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Answers</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let question of questions">
+            <td>{{question['question']}}</td>
+            <td>{{question.question}}</td>
+            <td>{{question['_answers'].length}}</td>
+            <td>
+              <a [routerLink]="['/questions', question._id]">Show</a>
+              <a [routerLink]="['/questions', question._id, 'new-answer']">Answer</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

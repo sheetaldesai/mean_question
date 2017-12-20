@@ -1,0 +1,17 @@
+<div class="container">
+  <form #form="ngForm" (submit)="onLogin()" method="post">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input 
+        type="text" 
+        name="username1"
+        [(ngModel)]="login.username"
+        #username1="ngModel"
+        required
+        class="form-control"
+      />
+      <small class="form-text text-muted error" *ngIf='!username1.valid'>Name is required.</small>
+    </div>
+    <input type="submit" [disabled] = !form.form.valid value="Log In">
+  </form>
+</div>

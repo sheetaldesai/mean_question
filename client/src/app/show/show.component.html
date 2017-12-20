@@ -1,0 +1,22 @@
+<div class="container">
+    <nav>
+     
+        <a [routerLink]="['/dashboard']">Home</a>
+        <a [routerLink]="['new-answer']">Answer the question</a>
+        <a [routerLink]="['/logout']">Logout</a>
+      
+    </nav>
+  <h1>{{question['question']}}</h1>
+  <p>{{question['description']}}</p>
+  <table class="table">
+      <tr *ngFor = "let ans of answers">
+          <td>
+            {{ans['username']}}:<br>
+            {{ans['text']}}<br>
+            {{ans['details']}}
+          </td>
+          <td>{{ans['likes']}}</td>
+          <td><button (click)="onLike(ans)">Like</button></td>
+        </tr>
+  </table>  
+</div>
